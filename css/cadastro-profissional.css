@@ -1,0 +1,19 @@
+/* ========================================
+   CADASTRO PROFISSIONAL STYLES
+   ======================================== */
+
+/* Animações de transição para campos profissionais (mantidas para consistência, embora o campo agora esteja sempre visível) */
+#professionalFields {
+    animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px; /* Valor alto para garantir que o conteúdo caiba */
+    }
+}

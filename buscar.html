@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Encontre profissionais qualificados em Parauapebas - PA - Talentoo">
+    <title>Buscar Profissionais - Talentoo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/buscar.css">
+    <link rel="shortcut icon" href="assets/static/images/talentoo.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <!-- <i class="fas fa-users-cog"></i>
+                <h1>Talentoo</h1> -->
+                <img src="assets/static/images/talentoo-logo.png" alt="Logo Talentoo">
+            </div>
+            <nav class="navbar-menu">
+                <a href="home.html">Home</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="buscar.html" class="active">Buscar</a>
+                <a href="cadastro.html">Cadastrar</a>
+                <a href="index.html" class="btn-nav-login">Entrar</a>
+            </nav>
+            <button class="navbar-toggle" id="navbarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="search-hero">
+        <div class="container">
+            <h1>Encontre o Profissional Ideal em Parauapebas</h1>
+            <p>Os melhores profissionais qualificados de Parauapebas prontos para atender você</p>
+            
+            <!-- Barra de Busca Principal -->
+            <div class="search-bar-main">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="O que você está procurando? Ex: Eletricista, Designer..."
+                    >
+                </div>
+                <div class="location-input-wrapper">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <select id="locationInput" aria-label="Cidade">
+                        <option value="">Selecione a cidade</option>
+                        <option value="Parauapebas - PA" selected>Parauapebas - PA</option>
+                        <option value="Curionópolis - PA">Curionópolis - PA</option>
+                        <option value="Canaã dos Carajás - PA">Canaã dos Carajás - PA</option>
+                    </select>
+                </div>
+                <button class="btn-search-main" id="btnSearchMain">
+                    <i class="fas fa-search"></i>
+                    <span>Buscar</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <main class="search-content">
+        <div class="container">
+            <div class="search-layout">
+                <!-- Sidebar de Filtros -->
+                <aside class="filters-sidebar">
+                    <div class="filters-header">
+                        <h3>
+                            <i class="fas fa-filter"></i>
+                            Filtros
+                        </h3>
+                        <button class="btn-clear-filters" id="btnClearFilters">
+                            Limpar
+                        </button>
+                    </div>
+
+                    <!-- Filtro: Categoria -->
+                    <div class="filter-group">
+                        <h4>Categoria</h4>
+                        <select id="filterCategory" class="filter-select">
+                            <option value="">Todas as categorias</option>
+                            <option value="construcao">Construção e Reformas</option>
+                            <option value="tecnologia">Tecnologia e TI</option>
+                            <option value="beleza">Beleza e Estética</option>
+                            <option value="saude">Saúde e Bem-estar</option>
+                            <option value="educacao">Educação e Ensino</option>
+                            <option value="design">Design e Arte</option>
+                            <option value="consultoria">Consultoria</option>
+                            <option value="manutencao">Manutenção</option>
+                            <option value="eventos">Eventos</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+
+                    <!-- Filtro: Avaliação -->
+                    <div class="filter-group">
+                        <h4>Avaliação Mínima</h4>
+                        <div class="rating-filter">
+                            <label class="rating-option">
+                                <input type="radio" name="rating" value="5">
+                                <span class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </span>
+                            </label>
+                            <label class="rating-option">
+                                <input type="radio" name="rating" value="4">
+                                <span class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </span>
+                                <span class="rating-text">ou mais</span>
+                            </label>
+                            <label class="rating-option">
+                                <input type="radio" name="rating" value="3">
+                                <span class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </span>
+                                <span class="rating-text">ou mais</span>
+                            </label>
+                            <label class="rating-option">
+                                <input type="radio" name="rating" value="0" checked>
+                                <span class="rating-text">Qualquer avaliação</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Filtro: Experiência -->
+                    <div class="filter-group">
+                        <h4>Experiência</h4>
+                        <div class="checkbox-group">
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="0-1">
+                                <span>Menos de 1 ano</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="1-3">
+                                <span>1 a 3 anos</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="3-5">
+                                <span>3 a 5 anos</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="5-10">
+                                <span>5 a 10 anos</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="10+">
+                                <span>Mais de 10 anos</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Filtro: Disponibilidade -->
+                    <div class="filter-group">
+                        <h4>Disponibilidade</h4>
+                        <div class="checkbox-group">
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="imediata">
+                                <span>Imediata</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="semana">
+                                <span>Esta semana</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="mes">
+                                <span>Este mês</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Botão Mobile: Aplicar Filtros -->
+                    <button class="btn-apply-filters-mobile" id="btnApplyFiltersMobile">
+                        Aplicar Filtros
+                    </button>
+                </aside>
+
+                <!-- Área de Resultados -->
+                <section class="results-area">
+                    <!-- Cabeçalho de Resultados -->
+                    <div class="results-header">
+                        <div class="results-info">
+                            <h2 id="resultsCount">248 profissionais encontrados</h2>
+                            <p id="resultsDescription">Mostrando resultados para sua busca</p>
+                        </div>
+                        
+                        <div class="results-controls">
+                            <button class="btn-toggle-filters" id="btnToggleFilters">
+                                <i class="fas fa-sliders-h"></i>
+                                Filtros
+                            </button>
+                            
+                            <select id="sortBy" class="sort-select">
+                                <option value="relevance">Mais relevantes</option>
+                                <option value="rating">Melhor avaliados</option>
+                                <option value="experience">Mais experientes</option>
+                                <option value="recent">Mais recentes</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Grid de Profissionais -->
+                    <div class="professionals-grid" id="professionalsGrid">
+                        <!-- Os cards serão inseridos aqui via JavaScript -->
+                    </div>
+
+                    <!-- Paginação -->
+                    <div class="pagination" id="pagination">
+                        <button class="pagination-btn" id="btnPrevPage" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                            Anterior
+                        </button>
+                        
+                        <div class="pagination-numbers" id="paginationNumbers">
+                            <!-- Números de página serão inseridos aqui -->
+                        </div>
+                        
+                        <button class="pagination-btn" id="btnNextPage">
+                            Próxima
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Talentoo. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="termos.html">Termos de Uso</a>
+                <span class="separator">|</span>
+                <a href="privacidade.html">Política de Privacidade</a>
+                <span class="separator">|</span>
+                <a href="contato.html">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/navbar.js"></script>
+    <script src="js/ux.js"></script>
+    <script src="js/buscar.js"></script>
+</body>
+</html>
+

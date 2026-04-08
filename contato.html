@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contato conosco - Talentoo">
+    <title>Contato - Talentoo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="shortcut icon" href="assets/static/images/talentoo.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="assets/static/images/talentoo-logo.png" alt="Logo Talentoo">
+            </div>
+            <nav class="navbar-menu">
+                <a href="home.html">Home</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="buscar.html">Buscar</a>
+                <a href="cadastro.html">Cadastrar</a>
+                <a href="index.html" class="btn-nav-login">Entrar</a>
+            </nav>
+            <button class="navbar-toggle" id="navbarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: var(--white); padding: 3rem 1rem; text-align: center;">
+        <div class="about-hero-content">
+            <h1>Fale Conosco</h1>
+            <p>Estamos aqui para ajudar você. Entre em contato!</p>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <main style="max-width: 1200px; margin: 0 auto; padding: 3rem 1rem;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+            
+            <!-- Informações de Contato -->
+            <div style="background: var(--white); border-radius: 12px; box-shadow: var(--shadow-sm); padding: 3rem;">
+                <h2 style="color: var(--primary-color); margin-bottom: 2rem;">
+                    <i class="fas fa-info-circle"></i>
+                    Informações de Contato
+                </h2>
+
+                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent-color), var(--secondary-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.2rem;">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--primary-color); margin-bottom: 0.25rem;">E-mail</h3>
+                            <p style="margin: 0;"><a href="mailto:contato.talentoo@outlook.com" style="color: var(--secondary-color);">contato.talentoo@outlook.com</a></p>
+                            <p style="margin: 0; font-size: 0.9rem; color: var(--neutral-color);">Resposta em até 24 horas</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent-color), var(--secondary-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.2rem;">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--primary-color); margin-bottom: 0.25rem;">Telefone</h3>
+                            <p style="margin: 0;"><a href="tel:+5594992547334" style="color: var(--secondary-color);">(94) 99254-7334</a></p>
+                            <p style="margin: 0; font-size: 0.9rem; color: var(--neutral-color);">De seg a Sex das 19h ate as 22h</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent-color), var(--secondary-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.2rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--primary-color); margin-bottom: 0.25rem;">Endereço</h3>
+                            <p style="margin: 0;">Parauapebas - PA</p>
+                            <p style="margin: 0; font-size: 0.9rem; color: var(--neutral-color);">Brasil</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent-color), var(--secondary-color)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.2rem;">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--primary-color); margin-bottom: 0.25rem;">Horário de Atendimento</h3>
+                            <p style="margin: 0;">De seg a Sex das 19h ate as 22h</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Redes Sociais -->
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e0e0e0;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Siga-nos</h3>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#" style="width: 40px; height: 40px; background: var(--secondary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; transition: all 0.3s;">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" style="width: 40px; height: 40px; background: var(--secondary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; transition: all 0.3s;">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" style="width: 40px; height: 40px; background: var(--secondary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; transition: all 0.3s;">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" style="width: 40px; height: 40px; background: var(--secondary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; transition: all 0.3s;">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulário de Contato -->
+            <div style="background: var(--white); border-radius: 12px; box-shadow: var(--shadow-sm); padding: 3rem;">
+                <h2 style="color: var(--primary-color); margin-bottom: 2rem;">
+                    <i class="fas fa-paper-plane"></i>
+                    Envie sua Mensagem
+                </h2>
+
+                <form id="contactForm" class="signup-form" novalidate>
+                    <div class="form-group">
+                        <label for="name">
+                            <i class="fas fa-user"></i>
+                            Nome Completo
+                        </label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="Digite seu nome completo"
+                            required
+                        >
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i>
+                            E-mail
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="seu@email.com"
+                            required
+                        >
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">
+                            <i class="fas fa-phone"></i>
+                            Telefone (Opcional)
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="phone" 
+                            name="phone" 
+                            placeholder="(00) 00000-0000"
+                        >
+                        <span class="error-message" id="phoneError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">
+                            <i class="fas fa-tag"></i>
+                            Assunto
+                        </label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Selecione o assunto</option>
+                            <option value="duvida">Dúvida sobre a plataforma</option>
+                            <option value="suporte">Suporte técnico</option>
+                            <option value="sugestao">Sugestão</option>
+                            <option value="parcerias">Parcerias</option>
+                            <option value="problema">Relatar problema</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                        <span class="error-message" id="subjectError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">
+                            <i class="fas fa-comment"></i>
+                            Mensagem
+                        </label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            rows="6"
+                            placeholder="Digite sua mensagem aqui..."
+                            required
+                            style="width: 100%; padding: 0.875rem 1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; font-family: var(--font-body); transition: all var(--transition-normal); background-color: var(--white); resize: vertical; min-height: 120px;"
+                        ></textarea>
+                        <span class="error-message" id="messageError"></span>
+                    </div>
+
+                    <button type="submit" class="btn-signup">
+                        <span>Enviar Mensagem</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Botão Voltar -->
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="home.html" class="btn-outline">
+                <i class="fas fa-arrow-left"></i>
+                Voltar para Home
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Talentoo. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="termos.html">Termos de Uso</a>
+                <span class="separator">|</span>
+                <a href="privacidade.html">Política de Privacidade</a>
+                <span class="separator">|</span>
+                <a href="contato.html">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/navbar.js"></script>
+    <script src="js/ux.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const subjectSelect = document.getElementById('subject');
+            const messageInput = document.getElementById('message');
+
+            // Função para mostrar erro
+            function showError(input, errorElement, message) {
+                input.classList.add('error');
+                errorElement.textContent = message;
+                errorElement.classList.add('show');
+            }
+
+            // Função para limpar erro
+            function clearError(input, errorElement) {
+                input.classList.remove('error');
+                errorElement.textContent = '';
+                errorElement.classList.remove('show');
+            }
+
+            // Validação de e-mail
+            function validateEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            // Validação em tempo real
+            [nameInput, emailInput, subjectSelect, messageInput].forEach(input => {
+                input.addEventListener('input', function() {
+                    const errorElement = document.getElementById(input.id + 'Error');
+                    clearError(input, errorElement);
+                });
+            });
+
+            // Submissão do formulário
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let hasErrors = false;
+                
+                // Validar nome
+                const nameValue = nameInput.value.trim();
+                const nameError = document.getElementById('nameError');
+                if (!nameValue) {
+                    showError(nameInput, nameError, 'Nome é obrigatório');
+                    hasErrors = true;
+                } else if (nameValue.length < 2) {
+                    showError(nameInput, nameError, 'Nome deve ter pelo menos 2 caracteres');
+                    hasErrors = true;
+                }
+                
+                // Validar e-mail
+                const emailValue = emailInput.value.trim();
+                const emailError = document.getElementById('emailError');
+                if (!emailValue) {
+                    showError(emailInput, emailError, 'E-mail é obrigatório');
+                    hasErrors = true;
+                } else if (!validateEmail(emailValue)) {
+                    showError(emailInput, emailError, 'Por favor, digite um e-mail válido');
+                    hasErrors = true;
+                }
+                
+                // Validar assunto
+                const subjectValue = subjectSelect.value;
+                const subjectError = document.getElementById('subjectError');
+                if (!subjectValue) {
+                    showError(subjectSelect, subjectError, 'Por favor, selecione um assunto');
+                    hasErrors = true;
+                }
+                
+                // Validar mensagem
+                const messageValue = messageInput.value.trim();
+                const messageError = document.getElementById('messageError');
+                if (!messageValue) {
+                    showError(messageInput, messageError, 'Mensagem é obrigatória');
+                    hasErrors = true;
+                } else if (messageValue.length < 10) {
+                    showError(messageInput, messageError, 'Mensagem deve ter pelo menos 10 caracteres');
+                    hasErrors = true;
+                }
+                
+                if (!hasErrors) {
+                    // Simular envio
+                    const btn = form.querySelector('.btn-signup');
+                    const originalText = btn.innerHTML;
+                    
+                    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+                    btn.disabled = true;
+                    
+                    setTimeout(() => {
+                        alert(`Mensagem enviada com sucesso!\n\nObrigado pelo contato, ${nameValue}!\nRetornaremos em breve para o e-mail: ${emailValue}`);
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                        form.reset();
+                    }, 2000);
+                }
+            });
+
+            // Responsividade para mobile
+            if (window.innerWidth <= 768) {
+                const mainContent = document.querySelector('main > div');
+                if (mainContent) {
+                    mainContent.style.gridTemplateColumns = '1fr';
+                    mainContent.style.gap = '2rem';
+                }
+            }
+        });
+    </script>
+
+    <style>
+        /* Responsividade adicional para a página de contato */
+        @media (max-width: 768px) {
+            main > div {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+        }
+        
+        /* Hover effects para redes sociais */
+        a[style*="background: var(--secondary-color)"]:hover {
+            background: var(--primary-color) !important;
+            transform: translateY(-2px);
+        }
+        
+        /* Style para textarea focus */
+        textarea:focus {
+            outline: none !important;
+            border-color: var(--accent-color) !important;
+            box-shadow: 0 0 0 3px rgba(163, 206, 241, 0.2) !important;
+        }
+    </style>
+</body>
+</html>

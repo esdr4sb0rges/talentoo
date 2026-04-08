@@ -1,0 +1,19 @@
+# Configuração do banco de dados (NUNCA suba isso!)
+config/db.php
+
+# Arquivos temporários e de sistema
+*.log
+*.tmp
+*.bak
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# Arquivos de backup JS
+js/*.backup
+
+# Arquivo de usuários JSON (dados sensíveis)
+usuarios.json
+
+# Pasta de dependências (se vier a usar Composer)
+vendor/

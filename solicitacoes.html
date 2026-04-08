@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solicitações de serviços em Parauapebas - PA - Talentoo">
+    <title>Solicitações de Serviços - Talentoo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/buscar.css">
+    <link rel="shortcut icon" href="assets/static/images/talentoo.ico" type="image/x-icon">
+    <style>
+        /* Estilos específicos para solicitações */
+        .solicitation-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all var(--transition-normal);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .solicitation-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .solicitation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .solicitation-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .solicitation-category {
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .solicitation-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--neutral-color);
+        }
+
+        .solicitation-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .solicitation-description {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .solicitation-budget {
+            background: #f8f9fa;
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .solicitation-budget strong {
+            color: var(--secondary-color);
+        }
+
+        .solicitation-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .solicitation-tag {
+            background: var(--background-color);
+            color: var(--text-dark);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .solicitation-actions {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .btn-send-proposal {
+            background: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-normal);
+        }
+
+        .btn-send-proposal:hover {
+            background: var(--primary-color);
+            transform: translateY(-1px);
+        }
+
+        .btn-chat {
+            background: transparent;
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all var(--transition-normal);
+        }
+
+        .btn-chat:hover {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .proposals-count {
+            color: var(--neutral-color);
+            font-size: 0.85rem;
+            margin-left: auto;
+        }
+
+        .filter-post-service {
+            background: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all var(--transition-normal);
+            margin-bottom: 1rem;
+        }
+
+        .filter-post-service:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .urgency-high {
+            border-left-color: #e74c3c;
+        }
+
+        .urgency-medium {
+            border-left-color: #f39c12;
+        }
+
+        .urgency-low {
+            border-left-color: #27ae60;
+        }
+
+        .urgency-badge {
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .urgency-badge.high {
+            background: #fee;
+            color: #e74c3c;
+        }
+
+        .urgency-badge.medium {
+            background: #fef9e7;
+            color: #f39c12;
+        }
+
+        .urgency-badge.low {
+            background: #eafaf1;
+            color: #27ae60;
+        }
+
+        @media (max-width: 768px) {
+            .solicitation-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .solicitation-meta {
+                flex-wrap: wrap;
+            }
+
+            .solicitation-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="assets/static/images/talentoo-logo.png" alt="Logo Talentoo">
+            </div>
+            <nav class="navbar-menu">
+                <a href="home.html">Home</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="buscar.html">Buscar</a>
+                <a href="cadastro.html">Cadastrar</a>
+                <a href="index.html" class="btn-nav-login">Entrar</a>
+            </nav>
+            <button class="navbar-toggle" id="navbarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="search-hero">
+        <div class="container">
+            <h1>Solicitações de Serviços em Parauapebas</h1>
+            <p>Encontre oportunidades de trabalho postadas por clientes da sua região</p>
+            
+            <!-- Filtros rápidos -->
+            <div class="search-bar-main">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Buscar por tipo de serviço..."
+                    >
+                </div>
+                <div class="location-input-wrapper">
+                    <i class="fas fa-filter"></i>
+                    <select id="categoryFilter">
+                        <option value="">Todas as categorias</option>
+                        <option value="construcao">Construção e Reformas</option>
+                        <option value="tecnologia">Tecnologia e TI</option>
+                        <option value="beleza">Beleza e Estética</option>
+                        <option value="saude">Saúde e Bem-estar</option>
+                        <option value="educacao">Educação</option>
+                        <option value="design">Design</option>
+                        <option value="manutencao">Manutenção</option>
+                        <option value="eventos">Eventos</option>
+                    </select>
+                </div>
+                <button class="btn-search-main" id="btnSearch">
+                    <i class="fas fa-search"></i>
+                    <span>Filtrar</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <main class="search-content">
+        <div class="container">
+            <div class="search-layout">
+                <!-- Sidebar de Filtros -->
+                <aside class="filters-sidebar">
+                    <div class="filters-header">
+                        <h3>
+                            <i class="fas fa-filter"></i>
+                            Filtros
+                        </h3>
+                        <button class="btn-clear-filters" id="btnClearFilters">
+                            Limpar
+                        </button>
+                    </div>
+
+                    <button class="filter-post-service" onclick="openPostServiceModal()">
+                        <i class="fas fa-plus"></i>
+                        Postar Solicitação
+                    </button>
+
+                    <!-- Filtro: Urgência -->
+                    <div class="filter-group">
+                        <h4>Urgência</h4>
+                        <div class="checkbox-group">
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="high">
+                                <span>Alta</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="medium">
+                                <span>Média</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="low">
+                                <span>Baixa</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Filtro: Orçamento -->
+                    <div class="filter-group">
+                        <h4>Faixa de Orçamento</h4>
+                        <div class="checkbox-group">
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="0-100">
+                                <span>Até R$ 100</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="100-500">
+                                <span>R$ 100 - R$ 500</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="500-1000">
+                                <span>R$ 500 - R$ 1.000</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="1000+">
+                                <span>Acima de R$ 1.000</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="negociar">
+                                <span>A negociar</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Filtro: Data -->
+                    <div class="filter-group">
+                        <h4>Postado há</h4>
+                        <div class="checkbox-group">
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="hoje">
+                                <span>Hoje</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="semana">
+                                <span>Esta semana</span>
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" value="mes">
+                                <span>Este mês</span>
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Área de Resultados -->
+                <section class="results-area">
+                    <!-- Cabeçalho de Resultados -->
+                    <div class="results-header">
+                        <div class="results-info">
+                            <h2 id="resultsCount">12 solicitações encontradas</h2>
+                            <p>Oportunidades de trabalho em Parauapebas</p>
+                        </div>
+                        
+                        <div class="results-controls">
+                            <button class="btn-toggle-filters" id="btnToggleFilters">
+                                <i class="fas fa-sliders-h"></i>
+                                Filtros
+                            </button>
+                            
+                            <select id="sortBy" class="sort-select">
+                                <option value="recent">Mais recentes</option>
+                                <option value="urgent">Mais urgentes</option>
+                                <option value="budget">Maior orçamento</option>
+                                <option value="proposals">Menos propostas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Lista de Solicitações -->
+                    <div class="solicitations-list" id="solicitationsList">
+                        <!-- Solicitações serão inseridas aqui via JavaScript -->
+                    </div>
+
+                    <!-- Paginação -->
+                    <div class="pagination" id="pagination">
+                        <button class="pagination-btn" id="btnPrevPage" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                            Anterior
+                        </button>
+                        
+                        <div class="pagination-numbers" id="paginationNumbers">
+                            <button class="pagination-number active">1</button>
+                            <button class="pagination-number">2</button>
+                        </div>
+                        
+                        <button class="pagination-btn" id="btnNextPage">
+                            Próxima
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Talentoo. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="termos.html">Termos de Uso</a>
+                <span class="separator">|</span>
+                <a href="privacidade.html">Política de Privacidade</a>
+                <span class="separator">|</span>
+                <a href="contato.html">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para Postar Solicitação -->
+    <div class="modal" id="postServiceModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div class="modal-content" style="background: white; padding: 2rem; border-radius: 12px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h3 style="color: var(--primary-color); margin: 0;">Postar Solicitação de Serviço</h3>
+                <button onclick="closePostServiceModal()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+            </div>
+            
+            <form id="postServiceForm" class="signup-form">
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-heading"></i>
+                        Título do Serviço
+                    </label>
+                    <input type="text" placeholder="Ex: Reforma de banheiro" required>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-list"></i>
+                        Categoria
+                    </label>
+                    <select required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="construcao">Construção e Reformas</option>
+                        <option value="tecnologia">Tecnologia e TI</option>
+                        <option value="beleza">Beleza e Estética</option>
+                        <option value="saude">Saúde e Bem-estar</option>
+                        <option value="educacao">Educação</option>
+                        <option value="design">Design</option>
+                        <option value="manutencao">Manutenção</option>
+                        <option value="eventos">Eventos</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-align-left"></i>
+                        Descrição Detalhada
+                    </label>
+                    <textarea rows="4" placeholder="Descreva o que você precisa..." required style="width: 100%; padding: 0.875rem 1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-family: var(--font-body); resize: vertical;"></textarea>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-dollar-sign"></i>
+                            Orçamento
+                        </label>
+                        <select required>
+                            <option value="">Selecione</option>
+                            <option value="0-100">Até R$ 100</option>
+                            <option value="100-500">R$ 100 - R$ 500</option>
+                            <option value="500-1000">R$ 500 - R$ 1.000</option>
+                            <option value="1000+">Acima de R$ 1.000</option>
+                            <option value="negociar">A negociar</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Urgência
+                        </label>
+                        <select required>
+                            <option value="">Selecione</option>
+                            <option value="low">Baixa</option>
+                            <option value="medium">Média</option>
+                            <option value="high">Alta</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-calendar"></i>
+                        Quando precisa?
+                    </label>
+                    <input type="date" required>
+                </div>
+
+                <button type="submit" class="btn-signup">
+                    <span>Postar Solicitação</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/navbar.js"></script>
+    <script src="js/ux.js"></script>
+    <script src="js/solicitacoes.js"></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Recuperar senha - Talentoo">
+    <title>Recuperar Senha - Talentoo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS customizado -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="shortcut icon" href="assets/static/images/talentoo.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="assets/static/images/talentoo-logo.png" alt="Logo Talentoo">
+            </div>
+            <nav class="navbar-menu">
+                <a href="home.html">Home</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="buscar.html">Buscar</a>
+                <a href="cadastro.html">Cadastrar</a>
+                <a href="index.html" class="btn-nav-login">Entrar</a>
+            </nav>
+            <button class="navbar-toggle" id="navbarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Container Principal -->
+    <div class="login-container">
+        <!-- Card de Recuperação -->
+        <div class="login-card">
+            <!-- Cabeçalho com Logo -->
+            <div class="login-header">
+                <div class="logo">
+                    <i class="fas fa-key"></i>
+                    <h1>Recuperar Senha</h1>
+                </div>
+                <p class="subtitle">Digite seu e-mail para receber as instruções de recuperação</p>
+            </div>
+
+            <!-- Formulário de Recuperação -->
+            <form id="recoverForm" class="login-form" novalidate>
+                <!-- Campo de Email -->
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i>
+                        E-mail
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Digite seu e-mail cadastrado"
+                        required
+                        autocomplete="email"
+                    >
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <!-- Botão de Recuperação -->
+                <button type="submit" class="btn-login">
+                    <span>Enviar Instruções</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+
+                <!-- Links de Navegação -->
+                <div class="signup-link">
+                    <p><a href="index.html">Voltar para Login</a></p>
+                    <p>Não tem uma conta? <a href="cadastro.html">Criar conta</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Padrão -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Talentoo. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="termos.html">Termos de Uso</a>
+                <span class="separator">|</span>
+                <a href="privacidade.html">Política de Privacidade</a>
+                <span class="separator">|</span>
+                <a href="contato.html">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link para Home -->
+    <div style="text-align: center; margin-top: 1rem;">
+        <a href="home.html" style="color: var(--secondary-color); text-decoration: none; font-weight: 600;">
+            <i class="fas fa-arrow-left"></i> Voltar para Home
+        </a>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/navbar.js"></script>
+    <script src="js/ux.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('recoverForm');
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+
+            // Função para mostrar erro
+            function showError(input, errorElement, message) {
+                input.classList.add('error');
+                errorElement.textContent = message;
+                errorElement.classList.add('show');
+            }
+
+            // Função para limpar erro
+            function clearError(input, errorElement) {
+                input.classList.remove('error');
+                errorElement.textContent = '';
+                errorElement.classList.remove('show');
+            }
+
+            // Validação de e-mail
+            function validateEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            // Validação em tempo real
+            emailInput.addEventListener('input', function() {
+                clearError(emailInput, emailError);
+            });
+
+            // Submissão do formulário
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let hasErrors = false;
+                
+                // Validar e-mail
+                const emailValue = emailInput.value.trim();
+                if (!emailValue) {
+                    showError(emailInput, emailError, 'E-mail é obrigatório');
+                    hasErrors = true;
+                } else if (!validateEmail(emailValue)) {
+                    showError(emailInput, emailError, 'Por favor, digite um e-mail válido');
+                    hasErrors = true;
+                }
+                
+                if (!hasErrors) {
+                    // Simular envio
+                    const btn = form.querySelector('.btn-login');
+                    const originalText = btn.innerHTML;
+                    
+                    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+                    btn.disabled = true;
+                    
+                    setTimeout(() => {
+                        alert(`Instruções de recuperação enviadas para: ${emailValue}\n\nVerifique sua caixa de entrada e spam.`);
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                        form.reset();
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

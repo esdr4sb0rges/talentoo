@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Perfil do Profissional - Talentoo">
+    <title>Perfil do Profissional - Talentoo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="shortcut icon" href="assets/static/images/talentoo.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <img src="assets/static/images/talentoo-logo.png" alt="Logo Talentoo">
+            </div>
+            <nav class="navbar-menu">
+                <a href="home.html">Home</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="buscar.html">Buscar</a>
+                <a href="cadastro.html">Cadastrar</a>
+                <a href="index.html" class="btn-nav-login">Entrar</a>
+            </nav>
+            <button class="navbar-toggle" id="navbarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="home.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="buscar.html">Buscar</a>
+            <i class="fas fa-chevron-right"></i>
+            <span id="breadcrumbName">Carregando...</span>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <main class="profile-content">
+        <div class="container">
+            <!-- Cabeçalho do Perfil -->
+            <section class="profile-header">
+                <div class="profile-avatar-large" id="profileAvatar">CS</div>
+                <div class="profile-header-info">
+                    <h1 id="profileName">Carregando...</h1>
+                    <p class="profile-category" id="profileCategory">...</p>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-stars" id="profileStars"></div>
+                            <span class="stat-rating" id="profileRating">0.0</span>
+                            <span class="stat-reviews" id="profileReviews">(0 avaliações)</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="profileLocation">...</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span id="profileExperience">...</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <button class="btn-primary" onclick="scrollToContact()">
+                            <i class="fas fa-envelope"></i>
+                            Solicitar Orçamento
+                        </button>
+                        <button class="btn-secondary" onclick="shareProfile()">
+                            <i class="fas fa-share-alt"></i>
+                            Compartilhar
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navegação de Tabs -->
+            <div class="profile-tabs">
+                <button class="tab-btn active" data-tab="sobre">
+                    <i class="fas fa-user"></i>
+                    Sobre
+                </button>
+                <button class="tab-btn" data-tab="portfolio">
+                    <i class="fas fa-images"></i>
+                    Portfólio
+                </button>
+                <button class="tab-btn" data-tab="avaliacoes">
+                    <i class="fas fa-star"></i>
+                    Avaliações
+                </button>
+                <button class="tab-btn" data-tab="contato">
+                    <i class="fas fa-envelope"></i>
+                    Contato
+                </button>
+            </div>
+
+            <!-- Conteúdo das Tabs -->
+            <div class="profile-tabs-content">
+                <!-- Tab: Sobre -->
+                <div class="tab-content active" id="tab-sobre">
+                    <div class="content-grid">
+                        <div class="content-main">
+                            <div class="card">
+                                <h3>Sobre o Profissional</h3>
+                                <p id="profileDescription">Carregando descrição...</p>
+                            </div>
+
+                            <div class="card">
+                                <h3>Especialidades</h3>
+                                <div class="tags-list" id="profileTags">
+                                    <!-- Tags serão inseridas aqui -->
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <h3>Serviços Oferecidos</h3>
+                                <ul class="services-list" id="profileServices">
+                                    <!-- Serviços serão inseridos aqui -->
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="content-sidebar">
+                            <div class="card">
+                                <h3>Informações</h3>
+                                <div class="info-list">
+                                    <div class="info-item">
+                                        <i class="fas fa-clock"></i>
+                                        <div>
+                                            <strong>Disponibilidade</strong>
+                                            <span id="profileAvailability">...</span>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-calendar-check"></i>
+                                        <div>
+                                            <strong>Membro desde</strong>
+                                            <span id="profileMemberSince">...</span>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <div>
+                                            <strong>Perfil Verificado</strong>
+                                            <span class="verified">Sim</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <h3>Certificações</h3>
+                                <div class="certifications-list" id="profileCertifications">
+                                    <!-- Certificações serão inseridas aqui -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Portfólio -->
+                <div class="tab-content" id="tab-portfolio">
+                    <div class="card">
+                        <h3>Galeria de Trabalhos</h3>
+                        <div class="portfolio-grid" id="portfolioGrid">
+                            <!-- Itens do portfólio serão inseridos aqui -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Avaliações -->
+                <div class="tab-content" id="tab-avaliacoes">
+                    <div class="card">
+                        <div class="reviews-header">
+                            <h3>Avaliações de Clientes</h3>
+                            <div class="reviews-summary">
+                                <div class="summary-rating">
+                                    <span class="summary-number" id="summaryRating">0.0</span>
+                                    <div class="summary-stars" id="summaryStars"></div>
+                                    <span class="summary-count" id="summaryCount">0 avaliações</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="reviews-list" id="reviewsList">
+                            <!-- Avaliações serão inseridas aqui -->
+                        </div>
+
+                        <button class="btn-load-more" id="btnLoadMoreReviews" style="display: none;">
+                            Carregar Mais Avaliações
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tab: Contato -->
+                <div class="tab-content" id="tab-contato">
+                    <div class="card">
+                        <h3>Solicitar Orçamento</h3>
+                        <p class="contact-intro">Preencha o formulário abaixo e o profissional entrará em contato com você.</p>
+                        
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contactName">
+                                        <i class="fas fa-user"></i>
+                                        Seu Nome
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        id="contactName" 
+                                        name="contactName" 
+                                        placeholder="Digite seu nome completo"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="contactEmail">
+                                        <i class="fas fa-envelope"></i>
+                                        Seu E-mail
+                                    </label>
+                                    <input 
+                                        type="email" 
+                                        id="contactEmail" 
+                                        name="contactEmail" 
+                                        placeholder="seu@email.com"
+                                        required
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactPhone">
+                                    <i class="fas fa-phone"></i>
+                                    Telefone
+                                </label>
+                                <input 
+                                    type="tel" 
+                                    id="contactPhone" 
+                                    name="contactPhone" 
+                                    placeholder="(00) 00000-0000"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactService">
+                                    <i class="fas fa-briefcase"></i>
+                                    Serviço Desejado
+                                </label>
+                                <select id="contactService" name="contactService" required>
+                                    <option value="">Selecione o serviço</option>
+                                    <!-- Opções serão inseridas dinamicamente -->
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactMessage">
+                                    <i class="fas fa-comment"></i>
+                                    Mensagem
+                                </label>
+                                <textarea 
+                                    id="contactMessage" 
+                                    name="contactMessage" 
+                                    rows="6"
+                                    placeholder="Descreva o serviço que você precisa, quando precisa e outras informações relevantes..."
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-submit-contact">
+                                <i class="fas fa-paper-plane"></i>
+                                Enviar Solicitação
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Talentoo. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="termos.html">Termos de Uso</a>
+                <span class="separator">|</span>
+                <a href="privacidade.html">Política de Privacidade</a>
+                <span class="separator">|</span>
+                <a href="contato.html">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Imagem do Portfólio -->
+    <div class="modal" id="portfolioModal">
+        <div class="modal-overlay" onclick="closePortfolioModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePortfolioModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="modalImage" src="" alt="Portfolio Image">
+            <p id="modalCaption"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/navbar.js"></script>
+    <script src="js/ux.js"></script>
+    <script src="js/perfil.js"></script>
+</body>
+</html>
+
